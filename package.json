@@ -1,0 +1,67 @@
+{
+  "name": "vscode-copy-path-format",
+  "displayName": "VS Code Copy Path Format",
+  "description": "A VS Code extension to copy file paths in a specific format.",
+  "version": "0.0.6",
+  "publisher": "your-name",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-name/vscode-copy-path-format"
+  },
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "activationEvents": [
+    "onCommand:copyFilePath",
+    "onCommand:copyTableId",
+    "onCommand:quickCopyPath"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "copyFilePath",
+        "title": "复制功能路径"
+      },
+      {
+        "command": "copyTableId",
+        "title": "复制 TableId"
+      },
+      {
+        "command": "quickCopyPath",
+        "title": "Quick(需安装autoquickcode)"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "copyFilePath",
+          "group": "navigation"
+        },
+        {
+          "command": "copyTableId",
+          "group": "navigation"
+        },
+        {
+          "command": "quickCopyPath",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.74.0",
+    "@vscode/vsce": "^2.22.0",
+    "ts-loader": "^8.0.0",
+    "typescript": "^4.0.0",
+    "vscode": "^1.1.36"
+  },
+  "license": "MIT"
+}
