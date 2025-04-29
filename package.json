@@ -2,11 +2,11 @@
   "name": "vscode-copy-path-format",
   "displayName": "VS Code Copy Path Format",
   "description": "A VS Code extension to copy file paths in a specific format.",
-  "version": "0.0.6",
-  "publisher": "your-name",
+  "version": "0.0.7",
+  "publisher": "newBuilder",
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-name/vscode-copy-path-format"
+    "url": "https://github.com/newBuilder365/myVsPlugin"
   },
   "engines": {
     "vscode": "^1.74.0"
@@ -39,7 +39,7 @@
           "group": "navigation"
         },
         {
-          "command": "copyTableId",
+          "command": "copyTableId", 
           "group": "navigation"
         },
         {

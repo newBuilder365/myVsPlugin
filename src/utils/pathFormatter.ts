@@ -1,9 +1,13 @@
 export function formatPath(filePath: string): string {
-    // 查找最后一个"project"在路径中的位置
-    const lastProjectIndex = filePath.lastIndexOf('project');
-    if (lastProjectIndex !== -1) {
-        // 提取从最后一个project开始的部分，并替换反斜杠为正斜杠
-        return filePath.substring(lastProjectIndex).replace(/\\/g, '/');
+    // 使用正则表达式精确匹配"project"目录
+    const projectRegex = /[\\\/]project[\\\/]/i;
+    const lastProjectMatch = filePath.match(new RegExp(`.*${projectRegex.source}`));
+    
+    if (lastProjectMatch) {
+        // 提取从最后一个project目录开始的部分
+        const matchedPath = lastProjectMatch[0];
+        const remainingPath = filePath.substring(matchedPath.length);
+        return `project/${remainingPath.replace(/\\/g, '/')}`;
     }
     // 如果没有找到project，返回原始路径（保持原有处理逻辑）
     return filePath.replace(/\\/g, '/');
